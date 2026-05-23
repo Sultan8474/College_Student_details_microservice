@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+     service-url:
+        defaultZone: http://localhost:8761/eureka 
+ 
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: COLLEGE-SERVICE
+          uri: lb://COLLEGE-SERVICE
+          predicates:
+             - Path=/college/**
+
+        - id: TEACHER-SERVICE
+          uri: lb://TEACHER-SERVICE
+          predicates:
+             - Path=/teacher/**
+
+        - id: STUDENT-SERVICE
+          uri: lb://STUDENT-SERVICE
+          predicates:
+             - Path=/student/**			 
+management:
+     endpoints:
+       web:
+        exposure:
+          include: "*"
+
+     endpoint:
+       health:
+         show-details: always
+
+info:
+          app:
+            name: API Gateway
+            version: 1.0
+            description: Microservice API Gateway
+
