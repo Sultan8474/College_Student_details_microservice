@@ -188,14 +188,6 @@ http://localhost:8080
 
 ---
 
-# 📷 Screenshots
-
-Add:
-- Eureka Dashboard Screenshot
-- Postman API Testing
-- Project Architecture
-
----
 
 # 👨‍💻 Author
 
